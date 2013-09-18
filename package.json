@@ -1,5 +1,5 @@
 {
-  "name": "app-framework",
+  "name": "duct",
   "version": "0.0.1",
   "description": "Node.js framework build on top of express, socket.io, and mongoose",
   "main": "index.js",
