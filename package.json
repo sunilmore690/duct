@@ -24,6 +24,7 @@
     "passport": "~0.1.17",
     "mongoose": "~3.6.19",
     "mongoose-concrete-timestamps": "~0.1.0",
-    "mongoose-cursor": "0.0.4"
+    "mongoose-cursor": "0.0.4",
+    "mongoose-pagination": "~1.0.0"
   }
 }
