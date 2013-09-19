@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mikepuerto/app-framework.git"
+    "url": "git://github.com/hintwhisper/duct.git"
   },
   "author": "",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/mikepuerto/app-framework/issues"
+    "url": "https://github.com/hintwhisper/duct/issues"
   },
   "dependencies": {
     "async": "~0.2.9",
