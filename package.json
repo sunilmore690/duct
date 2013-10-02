@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git://github.com/hintwhisper/duct.git"
   },
+  "bin": {
+    "duct": "bin/duct.js"
+  },
   "author": "",
   "license": "BSD-2-Clause",
   "bugs": {
