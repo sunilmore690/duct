@@ -24,8 +24,10 @@ if (!Duct) {
   *
   *  todo: pull it out into a different module
   */
-var args = process.argv
-var cmd = args[2];
+var args = process.argv,
+    cmd = args[2],
+    root = process.cwd(),
+    templatesPath = '../templates';
 
 process.nextTick(function () {
   
@@ -36,12 +38,19 @@ process.nextTick(function () {
   switch (val) {
     case 'controller':
       console.log('Generating a controller from the command line');
+      var controller_template = fs.readFileSync( templatesPath + '/controller_template.js', 'utf8', function(err, data){
+        if(err) throw err;
+      });
+
+      fs.fs.writeFileSync( root + '/app/controllers', 'controller_template', 'utf8', function(err) {
+        if (err) throw err;
+        console.log('Controller created.');
+      });
       break;
 
     case 'model':
       console.log('Generating a model from the command line is coming soon');
       break;
-
   }
 
 })
