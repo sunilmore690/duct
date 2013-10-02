@@ -9,9 +9,9 @@ var util = require('util'),
 /**
   * Check if Duct is loaded
   */
-if (!Duct) {
-  var Duct = require('duct');
-};
+// if (!Duct) {
+//   var Duct = require('duct');
+// };
 
 
 /**
@@ -68,15 +68,22 @@ process.nextTick(function () {
     * trigger appropirate operations for generators 
     */
 
-  switch (val) {
+  switch (cmd) {
+    default:
+    case'h':
+    case 'help':
+      console.log('Usage for Duct');
+      console.log('command                        purpose');
+      console.log('g  generate controller <name>  generates a controller with routes');
+      console.log('g  generate controller <name>  generates a controller with routes');
+      break;
     case 'controller':
       console.log('Generating a controller from the command line');
 
       /**
         * TODO: Revise this flow
-        */
-
-      /*
+        *
+        *
         * Read the controller templates
         */
       var controller_template = fs.readFileSync( templatesPath + '/controller_template.js', 'utf8', function(err, data){
@@ -106,5 +113,6 @@ process.nextTick(function () {
     case 'model':
       console.log('Generating a model from the command line is coming soon');
       break;
+
   }
 });
