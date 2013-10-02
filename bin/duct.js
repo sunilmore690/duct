@@ -4,7 +4,7 @@ var util = require('util'),
   fs = require('fs'),
   _ = require('lodash'),
   path = require('path'),
-  pluralize = require('../lib/pluralize');
+  inflect = require('inflect');
 
 /**
   * Check if Duct is loaded
@@ -47,11 +47,11 @@ function controllerName( name ) {
   * Give the controller name in a proper format i.e. Capitalized and Pluralized
   */
 function formattedControllerName( name ) {
-  return _.capitalize( pluralize.inflect( name ) );
+  return _.capitalize( inflect.pluralize( name ) );
 };
 
 function controllerDestination ( name ) {
-  root + '/app/controllers' + pluralize.inflect( name ) + '_controller.js';
+  root + '/app/controllers' + inflect.pluralize( name ) + '_controller.js';
 }
 
 process.nextTick(function () {
