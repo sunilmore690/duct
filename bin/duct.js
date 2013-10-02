@@ -30,6 +30,7 @@ var args = process.argv,
     cmd = args[2],
     nameARGV = args[3],
     root = process.cwd(),
+    appPath = root + '/app',
     templatesPath = '../templates';
 
 /**
@@ -52,7 +53,14 @@ function formattedControllerName( name ) {
 
 function controllerDestination ( name ) {
   root + '/app/controllers' + inflect.pluralize( name ) + '_controller.js';
-}
+};
+
+/**
+  * Creates the controller folder inside app
+  */
+function createControllerFolder () {
+  fs.mkdirSync( appPath + '/controllers');
+};
 
 process.nextTick(function () {
   
@@ -64,19 +72,39 @@ process.nextTick(function () {
     case 'controller':
       console.log('Generating a controller from the command line');
 
+      /**
+        * TODO: Revise this flow
+        */
+
+      /*
+        * Read the controller templates
+        */
       var controller_template = fs.readFileSync( templatesPath + '/controller_template.js', 'utf8', function(err, data){
         if(err) throw err;
       });
 
-      fs.fs.writeFileSync( controllerDestination( nameARGV ) , controllerName( nameARGV ), 'utf8', function(err) {
+      /**
+        * Create the app/ folder and then the /app/controller/ folder 
+        */
+      if ( !fs.existsSync( appPath ) ) {
+        fs.mkdirSync( appPath );
+        createControllerFolder();
+      }else {
+        createControllerFolder();
+      }
+
+      /**
+        * create the controller.js file
+        */
+      fs.writeFileSync( controllerDestination( nameARGV ) , controllerName( nameARGV ), 'utf8', function(err) {
         if (err) throw err;
         console.log('Controller created.');
       });
+
       break;
 
     case 'model':
       console.log('Generating a model from the command line is coming soon');
       break;
   }
-
-})
+});
