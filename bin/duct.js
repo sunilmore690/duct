@@ -30,7 +30,7 @@ var args = process.argv,
     cmd = args[3],
     nameARGV = args[4],
     root = process.cwd(),
-    appPath = root + '/app',
+    // rootPath = root + '/app',
     templatesPath = '../templates';
 
 /**
@@ -48,18 +48,21 @@ function controllerName( name ) {
   * Give the controller name in a proper format i.e. Capitalized and Pluralized
   */
 function formattedControllerName( name ) {
-  return _.capitalize( inflect.pluralize( name ) );
+  var pluralized = inflect.pluralize( name );
+  return inflect.capitalize( pluralized );
 };
 
 function controllerDestination ( name ) {
-  root + '/app/controllers' + inflect.pluralize( name ) + '_controller.js';
+  return root + '/app/controllers/' + inflect.decapitalize( inflect.pluralize( name ) ) + '_controller.js';
 };
 
 /**
   * Creates the controller folder inside app
   */
 function createControllerFolder () {
-  fs.mkdirSync( appPath + '/controllers');
+  if ( !fs.existsSync(appPath() + '/controllers') ) {
+    fs.mkdirSync( appPath() + '/controllers');
+  };
 };
 
 /**
@@ -69,6 +72,18 @@ function createControllerFolder () {
 function getTemplatesPath ( type ) {
   templateName = type + '_template.js';
   return path.resolve( __dirname, '..', 'templates/' + templateName );
+}
+
+/**
+  * Resolves the path to app/ for the node application
+  */
+function appPath () {
+  if ( _.last( root.split('/') ) === 'node_modules') {
+    resolvedPath = path.resolve( root, '../..');
+    return resolvedPath + '/app';
+  } else{
+    return root + '/app';
+  };
 }
 
 process.nextTick(function () {
@@ -89,12 +104,12 @@ process.nextTick(function () {
       var controller_template = fs.readFileSync( getTemplatesPath( 'controller' ) , 'utf8', function(err, data){
                                   if(err) throw err;
                                 });
-
+      
       /**
         * Create the app/ folder and then the /app/controller/ folder 
         */
-      if ( !fs.existsSync( appPath ) ) {
-        fs.mkdirSync( appPath );
+      if ( !fs.existsSync( appPath() ) ) {
+        fs.mkdirSync( appPath() );
         createControllerFolder();
       }else {
         createControllerFolder();
