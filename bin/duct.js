@@ -52,6 +52,9 @@ function formattedControllerName( name ) {
   return inflect.capitalize( pluralized );
 };
 
+/**
+  * decapitalize and pluralize the name
+  */
 function controllerDestination ( name ) {
   return root + '/app/controllers/' + inflect.decapitalize( inflect.pluralize( name ) ) + '_controller.js';
 };
@@ -118,10 +121,14 @@ process.nextTick(function () {
       /**
         * create the controller.js file
         */
-      fs.writeFileSync( controllerDestination( nameARGV ) , controllerName( nameARGV ), 'utf8', function(err) {
-        if (err) throw err;
-        console.log('Controller created.');
-      });
+      if ( fs.existsSync( controllerDestination( nameARGV ) ) ) {
+        console.log( inflect.decapitalize( inflect.pluralize( nameARGV ) ) + '_controller already exists');
+      } else{
+        fs.writeFileSync( controllerDestination( nameARGV ) , controllerName( nameARGV ), 'utf8', function(err) {
+          if (err) throw err;
+          console.log( inflect.decapitalize( inflect.pluralize( nameARGV ) ) +'_controller created.');
+        });
+      };
 
       break;
 
