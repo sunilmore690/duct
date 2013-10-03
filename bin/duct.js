@@ -27,8 +27,8 @@ var util = require('util'),
   *  todo: pull it out into a different module
   */
 var args = process.argv,
-    cmd = args[2],
-    nameARGV = args[3],
+    cmd = args[3],
+    nameARGV = args[4],
     root = process.cwd(),
     appPath = root + '/app',
     templatesPath = '../templates';
@@ -69,14 +69,6 @@ process.nextTick(function () {
     */
 
   switch (cmd) {
-    default:
-    case'h':
-    case 'help':
-      console.log('Usage for Duct');
-      console.log('command                        purpose');
-      console.log('g  generate controller <name>  generates a controller with routes');
-      console.log('g  generate controller <name>  generates a controller with routes');
-      break;
     case 'controller':
       console.log('Generating a controller from the command line');
 
@@ -112,6 +104,15 @@ process.nextTick(function () {
 
     case 'model':
       console.log('Generating a model from the command line is coming soon');
+      break;
+
+    default:
+    case'h':
+    case 'help':
+      console.log('Usage for Duct');
+      console.log('command                        purpose');
+      console.log('g  generate controller <name>  generates a controller with routes');
+      console.log('g  generate controller <name>  generates a controller with routes');
       break;
 
   }
