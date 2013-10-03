@@ -62,6 +62,15 @@ function createControllerFolder () {
   fs.mkdirSync( appPath + '/controllers');
 };
 
+/**
+  * Resolves and gives you the path for the template to read
+  *  Controller_template, Model_template and so on
+  */
+function getTemplatesPath ( type ) {
+  templateName = type + '_template.js';
+  return path.resolve( __dirname, '..', 'templates/' + templateName );
+}
+
 process.nextTick(function () {
   
   /**
@@ -75,12 +84,11 @@ process.nextTick(function () {
       /**
         * TODO: Revise this flow
         *
-        *
         * Read the controller templates
         */
-      var controller_template = fs.readFileSync( templatesPath + '/controller_template.js', 'utf8', function(err, data){
-        if(err) throw err;
-      });
+      var controller_template = fs.readFileSync( getTemplatesPath( 'controller' ) , 'utf8', function(err, data){
+                                  if(err) throw err;
+                                });
 
       /**
         * Create the app/ folder and then the /app/controller/ folder 
