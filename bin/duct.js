@@ -124,7 +124,7 @@ process.nextTick(function () {
       if ( fs.existsSync( controllerDestination( nameARGV ) ) ) {
         console.log( inflect.decapitalize( inflect.pluralize( nameARGV ) ) + '_controller already exists');
       } else{
-        fs.writeFileSync( controllerDestination( nameARGV ) , controllerName( nameARGV ), 'utf8', function(err) {
+        fs.writeFile( controllerDestination( nameARGV ) , controllerName( nameARGV ), 'utf8', function(err) {
           if (err) throw err;
           console.log( inflect.decapitalize( inflect.pluralize( nameARGV ) ) +'_controller created.');
         });
