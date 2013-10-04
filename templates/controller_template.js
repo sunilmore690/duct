@@ -6,5 +6,5 @@
   *       COMING SOON
   */
 module.exports = function() {
-  {{name}}_controller
+  {{name}}Controller; // coming soon: a decent, if not full-fledged template
 };
