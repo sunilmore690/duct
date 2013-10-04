@@ -24,7 +24,7 @@ process.nextTick(function () {
     */
   switch (cmd) {
     case 'controller':
-      var CG = (new ControllerGenerator( nameARGV )).generate();
+      (new ControllerGenerator( nameARGV )).generate();
       break;
 
     case 'model':
