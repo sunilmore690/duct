@@ -16,8 +16,7 @@ var args = process.argv,
     gen = args[2],
     cmd = appName = args[3],
     nameARGV = args[4],
-    ControllerGenerator = require('../lib/generators/controller'),
-    newAppGenerator = require('../lib/generators/new');
+    generators = require('../lib/generators');
 
 process.nextTick(function () {
   
@@ -29,7 +28,7 @@ process.nextTick(function () {
     case 'generate':
       switch (cmd) {
         case 'controller':
-          (new ControllerGenerator( nameARGV )).generate();
+          (new generators.controller( nameARGV )).generate();
           break;
 
         case 'model':
@@ -48,7 +47,7 @@ process.nextTick(function () {
 
     case 'new':
       console.log('Generating new Duct app..');
-      (new newAppGenerator( appName )).generate();
+      (new generators.newDuctApp( appName )).generate();
       break;
 
       default:
