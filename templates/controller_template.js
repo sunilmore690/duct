@@ -5,3 +5,6 @@
   * Instructions :
   *       COMING SOON
   */
+module.exports = function() {
+  {{name}}_controller
+};
