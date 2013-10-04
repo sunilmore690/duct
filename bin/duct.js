@@ -1,12 +1,5 @@
 #!/usr/bin/env node
 
-var util = require('util'),
-  fs = require('fs'),
-  _ = require('lodash'),
-  path = require('path'),
-  inflect = require('inflect'),
-  ControllerGenerator = require('../lib/generators/controller');
-
 /**
   *  
   * GENERATORS ONLY FOR NOW!!
@@ -21,19 +14,17 @@ var util = require('util'),
   */
 var args = process.argv,
     cmd = args[3],
-    nameARGV = args[4];
+    nameARGV = args[4],
+    ControllerGenerator = require('../lib/generators/controller');
 
 process.nextTick(function () {
   
   /**
     * trigger appropirate operations for generators 
     */
-
   switch (cmd) {
     case 'controller':
-      console.log('in the controller of bin');
-      var CG = new ControllerGenerator();
-      CG.generate( nameARGV );
+      var CG = (new ControllerGenerator( nameARGV )).generate();
       break;
 
     case 'model':
