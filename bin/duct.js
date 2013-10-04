@@ -9,10 +9,6 @@ var util = require('util'),
 /**
   * Check if Duct is loaded
   */
-// if (!Duct) {
-//   var Duct = require('duct');
-// };
-
 
 /**
   *  
@@ -30,7 +26,6 @@ var args = process.argv,
     cmd = args[3],
     nameARGV = args[4],
     root = process.cwd(),
-    // rootPath = root + '/app',
     templatesPath = '../templates';
 
 /**
@@ -141,7 +136,6 @@ process.nextTick(function () {
     case 'help':
       console.log('Usage for Duct');
       console.log('command                        purpose');
-      console.log('g  generate controller <name>  generates a controller with routes');
       console.log('g  generate controller <name>  generates a controller with routes');
       break;
 
