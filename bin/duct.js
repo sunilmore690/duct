@@ -8,10 +8,6 @@ var util = require('util'),
   ControllerGenerator = require('../lib/generators/controller');
 
 /**
-  * Check if Duct is loaded
-  */
-
-/**
   *  
   * GENERATORS ONLY FOR NOW!!
   *
@@ -25,9 +21,7 @@ var util = require('util'),
   */
 var args = process.argv,
     cmd = args[3],
-    nameARGV = args[4],
-    root = process.cwd(),
-    templatesPath = '../templates';
+    nameARGV = args[4];
 
 process.nextTick(function () {
   
