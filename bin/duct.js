@@ -38,6 +38,5 @@ process.nextTick(function () {
       console.log('command                        purpose');
       console.log('g  generate controller <name>  generates a controller with routes');
       break;
-
   }
 });
