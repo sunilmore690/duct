@@ -2,15 +2,8 @@
 
 /**
   *  
-  * GENERATORS ONLY FOR NOW!!
+  * Command line executions for duct
   *
-  * Capture the arguments for starting the process
-  * ex:
-  *    duct generate controller
-  *
-  * in this case, command = 'generate'
-  *
-  *  todo: pull it out into a different module
   */
 var args = process.argv,
     gen = args[2],
