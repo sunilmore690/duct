@@ -40,6 +40,7 @@ process.nextTick(function () {
         case 'help':
           console.log('Usage for Duct');
           console.log('command                        purpose');
+          console.log('new <name>                     generates a new app');
           console.log('g  generate controller <name>  generates a controller with routes');
           break;
       };
@@ -55,6 +56,7 @@ process.nextTick(function () {
       case 'help':
         console.log('Usage for Duct');
         console.log('command                        purpose');
+        console.log('new <name>                     generates a new app');
         console.log('g  generate controller <name>  generates a controller with routes');
         break;
   };
