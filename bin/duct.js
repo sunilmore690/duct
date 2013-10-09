@@ -21,11 +21,11 @@ process.nextTick(function () {
     case 'generate':
       switch (cmd) {
         case 'controller':
-          (new generators.controller( nameARGV )).generate();
+          (new generators.controller( nameARGV, 'controller' )).generate();
           break;
 
         case 'model':
-          console.log('Generating a model from the command line is coming soon');
+          (new generators.controller( nameARGV, 'model' )).generate();
           break;
 
         default:
