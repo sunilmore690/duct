@@ -9,8 +9,7 @@ module.exports = function(duct) {
   var app = duct.app;
 
   app.configure(function() {
-  	console.log('in configure');
-    duct.loadConfig();
+    duct.loadEnv();
     app.use(express.bodyParser());
     app.use(express.cookieParser('secret'));
     app.use(express.session({ secret: 'secret' }));
