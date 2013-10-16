@@ -1,7 +1,0 @@
-config ->
-db ->
-mq ->
-models ->
-controllers ->
-routing ->
-
