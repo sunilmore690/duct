@@ -29,6 +29,7 @@ NewDuctApp.prototype = {
       console.log('a folder by ' + this.name + ' already exists');
     }else {
       console.log('A new duct app is being generated ..');
+      console.log(this.templatesPath());
       this.readFromFolderAndWrite( this.appPath, this.templatesPath() );
     };
   },

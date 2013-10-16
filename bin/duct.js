@@ -9,7 +9,7 @@ var args = process.argv,
     gen = args[2],
     cmd = appName = args[3],
     nameARGV = args[4],
-    generators = require('../lib/generators');
+    generators = require('../generators');
 
 process.nextTick(function () {
   
