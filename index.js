@@ -3,4 +3,4 @@
  * 
  */
 
-module.exports = require('./lib/app/index.js');
+module.exports = require('./lib/duct.js');
