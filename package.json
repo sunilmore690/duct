@@ -14,7 +14,16 @@
   "bin": {
     "duct": "bin/duct.js"
   },
-  "author": "",
+  "contributors": [
+    {
+      "name": "Kaushik Thirthappa",
+      "email": "thirthappa.kaushik@gmail.com"
+    },
+    {
+      "name": "Mike puerto",
+      "email": "mikepuerto@gmail.com"
+    }
+  ],
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/hintwhisper/duct/issues"
